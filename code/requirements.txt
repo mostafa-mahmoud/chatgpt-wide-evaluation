@@ -1,0 +1,17 @@
+langchain==0.0.229
+langchainplus-sdk==0.0.20
+tensorflow==2.5.3
+pydantic==1.10.11
+openai==0.27.1
+openapi-schema-pydantic==1.2.4
+numpy==1.19.5
+pandas==1.4.3
+typing-inspect==0.8.0
+typing_extensions==4.7.1
+transformers==4.26.1
+tqdm==4.64.0
+scikit-learn==1.2.1
+scipy==1.8.1
+spacy==3.5.0
+smac==1.4.0
+ConfigSpace==0.5.0

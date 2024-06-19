@@ -1,6 +1,6 @@
 # ChatGPT Wide Evaluation
 
-This repository provides the splits of the datasets used in the publication below.
+This repository provides the code and the splits of the datasets used in the publication below.
 
 Please cite our work upon use, and check and abide by the respective licenses of the datasets below, and cite their respective work.
 The splits of the datasets for Personality, Aspect-based problems, and emotions rankings are identical to the originally provided splits in these datasets.
@@ -9,11 +9,30 @@ The splits of the datasets for Personality, Aspect-based problems, and emotions 
 @article{Amin2023-Wide-Evaluation,
   title={{A Wide Evaluation of ChatGPT on Affective Computing Tasks}},
   author={Amin, Mostafa M and Mao, Rui and Cambria, Erik and Schuller, Bj{\"o}rn W},
-  journal={arXiv:2308.13911},
-  url={https://arxiv.org/abs/2308.13911},
-  year={2023}
+  journal={Transactions on Affective Computing},
+  publisher={IEEE},
+  year={2024}
 }
 ```
+
+Code
+----
+
+The code consists of:
+
+* The script `run_experiment.py`, which contains the code for training the LSTM models using word IDs (end-to-end), or
+  using RoBERTa features. The datasets were assumed to have a different structure than what is currently available in
+  this repository. The folder `dataset_splits` provides the outputs of the `read_data(problem, part)` on the format
+  `{problem}_{part}.csv`.
+* The training builds TFRecords with the IDs or the RoBERTa features of the text. To be used repetitively while using
+  hyperparameter tuning using SMAC.
+* Obtaining the responses of the GPT models is done using `collect_gpt.py` script, assuming the the environment variable
+  for the OpenAI API key is set, using `OPENAI_API_KEY`.
+* The pair sampling of the small world graph is done using the function `generateSmallWorldGraph` in
+  `core/pair_comparisons.py`.
+
+Datasets
+--------
 
 * [Aspect-based Datasets](https://github.com/NLPWM-WHU/RACL/tree/master/data) License `GPL-3.0 license`
 * [Sentiment Analysis Dataset](https://huggingface.co/datasets/sentiment140)
